@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Business Growth Audit — Stuora Bar</title>
+<style>html,body{margin:0;padding:0;background:#F5F7F5}@media (prefers-color-scheme:dark){html,body{background:#0D1310}}</style>
+</head>
+<body>
+<style>
+.bga{--bg:#F5F7F5;--surface:#FFFFFF;--surface2:#EDF2EE;--ink:#14201B;--muted:#5C6B63;
+--line:#DEE5E0;--accent:#0F9E8E;--good:#16A34A;--warn:#D97706;--crit:#DC2626;--nodata:#78878F;
+color:var(--ink);background:var(--bg);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+max-width:900px;margin:0 auto;padding:32px 22px 60px;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+@media (prefers-color-scheme:dark){.bga{--bg:#0D1310;--surface:#141D18;--surface2:#1C2822;--ink:#E9EFEA;--muted:#93A79D;
+--line:#26332C;--accent:#2DD4BF;--good:#34D399;--warn:#FBBF24;--crit:#F87171;--nodata:#9AA7AE}}
+:root[data-theme="dark"] .bga{--bg:#0D1310;--surface:#141D18;--surface2:#1C2822;--ink:#E9EFEA;--muted:#93A79D;
+--line:#26332C;--accent:#2DD4BF;--good:#34D399;--warn:#FBBF24;--crit:#F87171;--nodata:#9AA7AE}
+:root[data-theme="light"] .bga{--bg:#F5F7F5;--surface:#FFFFFF;--surface2:#EDF2EE;--ink:#14201B;--muted:#5C6B63;
+--line:#DEE5E0;--accent:#0F9E8E;--good:#16A34A;--warn:#D97706;--crit:#DC2626;--nodata:#78878F}
+.bga *{box-sizing:border-box}
+.bga h1{font-size:34px;line-height:1.1;margin:.1em 0;letter-spacing:-.02em;text-wrap:balance}
+.bga h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 14px;font-weight:600}
+.bga h3{font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 8px}
+.bga h4{font-size:17px;margin:.2em 0 .4em;letter-spacing:-.01em}
+.bga section{margin-top:34px}
+.eyebrow{font-size:11px;letter-spacing:.22em;color:var(--accent);font-weight:700}
+.hd{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-bottom:24px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.sub{color:var(--muted);font-size:13.5px;letter-spacing:.02em}
+.date{color:var(--muted);font-size:12.5px;margin-top:6px}
+.hd-r{text-align:center}
+.gauge{position:relative;width:120px;height:120px;margin:0 auto}
+.ring{width:120px;height:120px;transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:var(--surface2);stroke-width:10}
+.ring-fg{fill:none;stroke-width:10;stroke-linecap:round;transition:stroke-dasharray .6s ease}
+.gauge-c{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.gv{font-size:38px;font-weight:750;letter-spacing:-.03em}
+.gm{color:var(--muted);font-size:14px;margin-left:2px}
+.gauge-l{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.honesty{margin-top:22px;background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:13.5px;color:var(--muted)}
+.honesty b{color:var(--ink)}
+.summary{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sum-col{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.sum-col ul{margin:0;padding-left:18px}.sum-col li{margin:5px 0;font-size:14.5px}
+.sum-good h3{color:var(--good)}.sum-gap h3{color:var(--warn)}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 15px}
+.tile-h{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;min-height:34px;line-height:1.25}
+.dot{width:9px;height:9px;border-radius:50%;flex:none}
+.tile-s{margin:8px 0 6px}.sc{font-size:30px;font-weight:750;letter-spacing:-.03em}.sc-max{color:var(--muted);font-size:13px}
+.nd{color:var(--nodata);font-size:14px;font-weight:600;font-style:italic}
+.meter{height:7px;background:var(--surface2);border-radius:99px;overflow:hidden}.meter i{display:block;height:100%;border-radius:99px}
+.tile-w{color:var(--muted);font-size:11.5px;margin-top:8px;letter-spacing:.03em}
+.finds{display:flex;flex-direction:column;gap:12px}
+.find{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--nodata);border-radius:12px;padding:15px 17px}
+.find-good{border-left-color:var(--good)}.find-warn{border-left-color:var(--warn)}.find-crit{border-left-color:var(--crit)}.find-nodata{border-left-color:var(--nodata)}
+.find-top{display:flex;align-items:center;gap:10px;font-size:12px}
+.chip{padding:2px 9px;border-radius:99px;font-weight:600;font-size:11.5px}
+.chip-good{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good)}
+.chip-warn{background:color-mix(in srgb,var(--warn) 16%,transparent);color:var(--warn)}
+.chip-crit{background:color-mix(in srgb,var(--crit) 15%,transparent);color:var(--crit)}
+.chip-nodata{background:var(--surface2);color:var(--nodata)}
+.fid{color:var(--muted);letter-spacing:.05em}.prio{margin-left:auto;color:var(--muted);font-weight:600;letter-spacing:.03em}
+.kv{display:flex;align-items:baseline;gap:12px;margin:2px 0 6px;flex-wrap:wrap}.kv b{font-size:18px}
+.bench{color:var(--muted);font-size:12.5px}
+.why{margin:.2em 0;color:var(--muted);font-size:14px}
+.rec{margin:.4em 0 .6em;font-size:14.5px}.rec span{color:var(--accent);font-weight:600}
+.prov{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+.prov a{color:var(--muted)}.prov .note{flex-basis:100%;font-style:italic;opacity:.85}
+.rel{padding:1px 7px;border-radius:6px;font-size:11px;font-weight:600}
+.rel-ok{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good)}
+.rel-neut{background:var(--surface2);color:var(--muted)}
+.rel-lock{background:color-mix(in srgb,var(--warn) 15%,transparent);color:var(--warn)}
+.rel-hyp{background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
+.eur-box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.eur-flag{display:inline-block;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent);font-weight:600;font-size:13px;padding:4px 10px;border-radius:8px;margin-bottom:8px}
+.eur-f{font-size:14px}.eur-i{font-size:13.5px;color:var(--muted);background:var(--surface2);padding:10px 12px;border-radius:8px}
+.road{margin:0;padding-left:20px}.road li{margin:8px 0;font-size:15px}.road li span{color:var(--accent);font-weight:700;margin-right:4px}
+.fine{color:var(--muted);font-size:12.5px}
+.srcs{columns:2;font-size:12.5px;color:var(--muted);gap:24px}.srcs li{margin:4px 0;break-inside:avoid}.srcs a{color:var(--accent)}
+.disc{color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:10px;margin-top:12px}
+.ft{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;text-align:center}
+@media (max-width:620px){.tiles{grid-template-columns:1fr 1fr}.summary{grid-template-columns:1fr}.srcs{columns:1}.bga h1{font-size:27px}}
+</style>
+<div class="bga">
+  <header class="hd">
+    <div class="hd-l">
+      <div class="eyebrow">BUSINESS GROWTH AUDIT · прототип v0.1</div>
+      <h1>Stuora Bar</h1>
+      <div class="sub">BAR · Rīga, Latvija · Audēju iela 15, Centra rajons, Rīga, LV-1050</div>
+      <div class="date">Дата аудита: 2026-07-06</div>
+    </div>
+    <div class="hd-r">
+      <div class="gauge"><svg viewBox="0 0 120 120" class="ring" aria-hidden="true">
+      <circle cx="60" cy="60" r="52" class="ring-bg"/>
+      <circle cx="60" cy="60" r="52" class="ring-fg" style="stroke:var(--warn);stroke-dasharray:163.4 326.7"/>
+    </svg><div class="gauge-c"><span class="gv" style="color:var(--warn)">50</span><span class="gm">/100</span></div></div>
+      <div class="gauge-l">Business Growth Score</div>
+    </div>
+  </header>
+
+  <div class="honesty">
+    <b>Только реальные данные.</b> Покрытие данных: <b>79%</b>. Оси «активность» и «доверие» помечены «нет данных» —
+    их метрики закрыты публично и требуют доступа клиента (Meta Graph API / Google Business). Балл считается только по осям с данными; ничего не додумывается.
+  </div>
+
+  <section>
+    <h2>Коротко</h2>
+    <div class="summary">
+      <div class="sum-col sum-good"><h3>Сильные стороны</h3><ul><li>Рейтинг Google — отличный: <b>5.0 ★</b></li><li>Instagram присутствует: <b>@stuora.bar</b></li></ul></div>
+      <div class="sum-col sum-gap"><h3>Где теряете рост</h3><ul><li>Мало отзывов — низкий объём</li><li>Нет профиля на TripAdvisor</li><li>Нет собственного сайта</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Скоринг по 6 осям</h2>
+    <div class="tiles"><div class="tile">
+      <div class="tile-h"><span class="dot" style="background:var(--warn)"></span>Локальная видимость (Google / Карты)</div>
+      <div class="tile-s"><span class="sc" style="color:var(--warn)">60</span><span class="sc-max">/100</span></div>
+      <div class="meter"><i style="width:60%;background:var(--warn)"></i></div>
+      <div class="tile-w">вес 27%</div>
+    </div><div class="tile">
+      <div class="tile-h"><span class="dot" style="background:var(--warn)"></span>Репутация и отзывы</div>
+      <div class="tile-s"><span class="sc" style="color:var(--warn)">63</span><span class="sc-max">/100</span></div>
+      <div class="meter"><i style="width:63%;background:var(--warn)"></i></div>
+      <div class="tile-w">вес 28%</div>
+    </div><div class="tile">
+      <div class="tile-h"><span class="dot" style="background:var(--crit)"></span>Сайт и конверсия</div>
+      <div class="tile-s"><span class="sc" style="color:var(--crit)">0</span><span class="sc-max">/100</span></div>
+      <div class="meter"><i style="width:0%;background:var(--crit)"></i></div>
+      <div class="tile-w">вес 12%</div>
+    </div><div class="tile">
+      <div class="tile-h"><span class="dot" style="background:var(--warn)"></span>Полнота присутствия (каналы / NAP)</div>
+      <div class="tile-s"><span class="sc" style="color:var(--warn)">50</span><span class="sc-max">/100</span></div>
+      <div class="meter"><i style="width:50%;background:var(--warn)"></i></div>
+      <div class="tile-w">вес 12%</div>
+    </div><div class="tile">
+      <div class="tile-h"><span class="dot" style="background:var(--nodata)"></span>Активность и контент</div>
+      <div class="tile-s"><span class="nd">нет данных</span></div>
+      <div class="meter"><i style="width:0"></i></div>
+      <div class="tile-w">вес 16%</div>
+    </div><div class="tile">
+      <div class="tile-h"><span class="dot" style="background:var(--nodata)"></span>Доверие и комплаенс</div>
+      <div class="tile-s"><span class="nd">нет данных</span></div>
+      <div class="meter"><i style="width:0"></i></div>
+      <div class="tile-w">вес 5%</div>
+    </div></div>
+    <p class="fine">Веса и пороги — из BENCHMARKS.md §E (🧪 перенос US, калибруются на выборке баров Риги).</p>
+  </section>
+
+  <section>
+    <h2>Находки и что делать</h2>
+    <div class="finds"><div class="find find-warn">
+      <div class="find-top">
+        <span class="chip chip-warn">▲ Внимание</span>
+        <span class="fid">R-01</span>
+        <span class="prio">P1</span>
+      </div>
+      <h4>Мало отзывов — низкий объём</h4>
+      <div class="kv"><b>40 отзывов</b><span class="bench">норма: норма бара 120–300</span></div>
+      <p class="why">Отзывы — второй по весу фактор локального ранжирования; малый объём ограничивает и доверие, и видимость при отличном рейтинге.</p>
+      <p class="rec"><span>Что сделать →</span> Запустить системный сбор отзывов: QR на столах/чеке, просьба на кассе. Цель — +20–30/мес.</p>
+      <div class="prov"><span class="rel rel-neut">веб-источник</span><a href="https://www.google.com/maps" target="_blank" rel="noopener">Google (сводка поиска) · 2026-07-06</a><span class="note">подтвердить через Places API</span></div>
+    </div><div class="find find-warn">
+      <div class="find-top">
+        <span class="chip chip-warn">▲ Внимание</span>
+        <span class="fid">R-05</span>
+        <span class="prio">P1</span>
+      </div>
+      <h4>Нет профиля на TripAdvisor</h4>
+      <div class="kv"><b>не найден</b><span class="bench">норма: туристы Риги ищут бары здесь</span></div>
+      <p class="why">TripAdvisor — ключевой канал для туристического потока Риги; без профиля этот трафик не виден.</p>
+      <p class="rec"><span>Что сделать →</span> Создать и заполнить бесплатный профиль TripAdvisor: фото, часы, категория, описание.</p>
+      <div class="prov"><span class="rel rel-neut">веб-источник</span><a href="https://www.tripadvisor.com/" target="_blank" rel="noopener">веб-поиск: профиль не найден · 2026-07-06</a></div>
+    </div><div class="find find-crit">
+      <div class="find-top">
+        <span class="chip chip-crit">■ Критично</span>
+        <span class="fid">W-01</span>
+        <span class="prio">P1</span>
+      </div>
+      <h4>Нет собственного сайта</h4>
+      <div class="kv"><b>сайт не найден</b><span class="bench">норма: база для меню, брони, SEO и рекламы</span></div>
+      <p class="why">Без сайта теряются прямые заходы, онлайн-меню, точка брони, структурированные данные и посадочная под рекламу; всё замкнуто на Instagram.</p>
+      <p class="rec"><span>Что сделать →</span> Собрать лёгкую посадочную (1 страница): меню (HTML, не PDF), часы, карта, клик-ту-колл, ссылки на соцсети.</p>
+      <div class="prov"><span class="rel rel-neut">веб-источник</span>веб-поиск: отдельный сайт не найден · 2026-07-06</div>
+    </div><div class="find find-good">
+      <div class="find-top">
+        <span class="chip chip-good">● OK</span>
+        <span class="fid">R-02</span>
+        <span class="prio">Сильная сторона</span>
+      </div>
+      <h4>Рейтинг Google — отличный</h4>
+      <div class="kv"><b>5.0 ★</b><span class="bench">норма: конкурентная планка ≥ 4.4 ★</span></div>
+      <p class="why">Высокий рейтинг напрямую повышает и конверсию в визит, и позицию в Картах.</p>
+      <p class="rec"><span>Что сделать →</span> Сохранять качество; использовать 5.0★ как аргумент в контенте и на будущем сайте.</p>
+      <div class="prov"><span class="rel rel-neut">веб-источник</span><a href="https://www.google.com/maps" target="_blank" rel="noopener">Google (сводка поиска) · 2026-07-06</a><span class="note">точное значение подтвердить через Places API</span></div>
+    </div><div class="find find-good">
+      <div class="find-top">
+        <span class="chip chip-good">● OK</span>
+        <span class="fid">N-04</span>
+        <span class="prio">P2</span>
+      </div>
+      <h4>Instagram присутствует</h4>
+      <div class="kv"><b>@stuora.bar</b><span class="bench">норма: основной живой канал бара</span></div>
+      <p class="why">Instagram — сильный канал для бара, но сейчас это единственная витрина; публичные метрики закрыты (нужен Meta Graph API).</p>
+      <p class="rec"><span>Что сделать →</span> Подключить Meta Graph Business Discovery для метрик; добавить второй канал (сайт/TripAdvisor).</p>
+      <div class="prov"><span class="rel rel-ok">проверено</span><a href="https://www.instagram.com/stuora.bar/" target="_blank" rel="noopener">Instagram · 2026-07-06</a></div>
+    </div><div class="find find-nodata">
+      <div class="find-top">
+        <span class="chip chip-nodata">○ Нет данных</span>
+        <span class="fid">S-01</span>
+        <span class="prio">Домер</span>
+      </div>
+      <h4>Активность в соцсетях — нет публичных данных</h4>
+      <div class="kv"><b>недоступно</b><span class="bench">норма: нужен Meta Graph Business Discovery (уровень B)</span></div>
+      <p class="why">Частоту постинга, вовлечённость и охват нельзя достоверно снять публично — Instagram блокирует скрап.</p>
+      <p class="rec"><span>Что сделать →</span> Подключить Meta Graph API (наш токен) — легально отдаёт подписчиков, ER, частоту, Reels.</p>
+      <div class="prov"><span class="rel rel-lock">нужен доступ</span><span class="note">публичный fetch заблокирован Instagram; нужен Meta Graph Business Discovery (уровень B)</span></div>
+    </div><div class="find find-nodata">
+      <div class="find-top">
+        <span class="chip chip-nodata">○ Нет данных</span>
+        <span class="fid">G-08</span>
+        <span class="prio">Домер</span>
+      </div>
+      <h4>Показы/клики Google Business — нет данных</h4>
+      <div class="kv"><b>недоступно</b><span class="bench">норма: нужен доступ владельца (уровень C, после DPA)</span></div>
+      <p class="why">Точная воронка (показы→клики→звонки→маршруты) и достоверный €-расчёт возможны только с доступом к GBP.</p>
+      <p class="rec"><span>Что сделать →</span> На пилоте подписать DPA и подключить Google Business Profile Insights.</p>
+      <div class="prov"><span class="rel rel-lock">нужен доступ</span><span class="note">требует доступа к Google Business Profile (уровень C, после DPA)</span></div>
+    </div></div>
+  </section>
+
+  <section class="eur">
+    <h2>Сколько это в деньгах (€)</h2>
+    <div class="eur-box">
+      <div class="eur-flag">€-оценка пока недоступна — и мы её не выдумываем</div>
+      <p>Точная сумма требует среднего чека (от вас) и показов Google Business (уровень C, после DPA).</p>
+      <p class="eur-f"><b>Механика:</b> Недо-€/мес ≈ (норма_отзывов − факт) → недо-видимость в Картах → недо-визиты × средний чек</p>
+      <p class="eur-i">🧪 Иллюстрация механики (НЕ факт): при среднем чеке €12 и росте с 40 до 120 отзывов ожидаемо расширение видимости в Google Maps. Реальные числа считаем на пилоте по данным GBP.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Первые шаги (приоритет P1)</h2>
+    <ol class="road"><li><span>R-01</span> Запустить системный сбор отзывов: QR на столах/чеке, просьба на кассе. Цель — +20–30/мес.</li><li><span>R-05</span> Создать и заполнить бесплатный профиль TripAdvisor: фото, часы, категория, описание.</li><li><span>W-01</span> Собрать лёгкую посадочную (1 страница): меню (HTML, не PDF), часы, карта, клик-ту-колл, ссылки на соцсети.</li></ol>
+  </section>
+
+  <section class="meth">
+    <h2>Методология и источники</h2>
+    <p class="fine">Балл 0–100 = взвешенная сумма осей (по осям с данными). Каждый факт снабжён источником, датой и уровнем достоверности. «Нет данных» никогда не заменяется догадкой.</p>
+    <ul class="srcs"><li>Google (сводка поиска) — <a href="https://www.google.com/maps" target="_blank" rel="noopener">ссылка</a> · 2026-07-06</li><li>Instagram — <a href="https://www.instagram.com/stuora.bar/" target="_blank" rel="noopener">ссылка</a> · 2026-07-06</li><li>веб-поиск: отдельный сайт не найден · 2026-07-06</li><li>веб-поиск: профиль не найден — <a href="https://www.tripadvisor.com/" target="_blank" rel="noopener">ссылка</a> · 2026-07-06</li></ul>
+    <p class="disc">Прототип на публичных данных (уровни A/B). Рейтинг/отзывы Google взяты из сводки веб-поиска и подлежат подтверждению через Places API. €-оценка и метрики соцсетей появляются на пилоте после доступа клиента (DPA).</p>
+  </section>
+
+  <footer class="ft">Business Growth Audit · движок-прототип · сгенерировано детерминированным кодом (без LLM) · 2026-07-06</footer>
+</div>
+</body>
+</html>

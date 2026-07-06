@@ -8,251 +8,217 @@
 </head>
 <body>
 <style>
-.bga{--bg:#F5F7F5;--surface:#FFFFFF;--surface2:#EDF2EE;--ink:#14201B;--muted:#5C6B63;
---line:#DEE5E0;--accent:#0F9E8E;--good:#16A34A;--warn:#D97706;--crit:#DC2626;--nodata:#78878F;
+.bga{--bg:#F5F7F5;--surface:#FFFFFF;--surface2:#EDF2EE;--surface3:#D9E2DC;--ink:#14201B;--muted:#5C6B63;
+--line:#DEE5E0;--accent:#0F9E8E;--good:#16A34A;--warn:#D97706;--crit:#DC2626;--nodata:#8A968E;
 color:var(--ink);background:var(--bg);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-max-width:900px;margin:0 auto;padding:32px 22px 60px;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
-@media (prefers-color-scheme:dark){.bga{--bg:#0D1310;--surface:#141D18;--surface2:#1C2822;--ink:#E9EFEA;--muted:#93A79D;
---line:#26332C;--accent:#2DD4BF;--good:#34D399;--warn:#FBBF24;--crit:#F87171;--nodata:#9AA7AE}}
-:root[data-theme="dark"] .bga{--bg:#0D1310;--surface:#141D18;--surface2:#1C2822;--ink:#E9EFEA;--muted:#93A79D;
---line:#26332C;--accent:#2DD4BF;--good:#34D399;--warn:#FBBF24;--crit:#F87171;--nodata:#9AA7AE}
-:root[data-theme="light"] .bga{--bg:#F5F7F5;--surface:#FFFFFF;--surface2:#EDF2EE;--ink:#14201B;--muted:#5C6B63;
---line:#DEE5E0;--accent:#0F9E8E;--good:#16A34A;--warn:#D97706;--crit:#DC2626;--nodata:#78878F}
+max-width:940px;margin:0 auto;padding:32px 22px 64px;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+@media (prefers-color-scheme:dark){.bga{--bg:#0D1310;--surface:#141D18;--surface2:#1C2822;--surface3:#2A3A31;--ink:#E9EFEA;--muted:#93A79D;
+--line:#26332C;--accent:#2DD4BF;--good:#34D399;--warn:#FBBF24;--crit:#F87171;--nodata:#8A968E}}
+:root[data-theme="dark"] .bga{--bg:#0D1310;--surface:#141D18;--surface2:#1C2822;--surface3:#2A3A31;--ink:#E9EFEA;--muted:#93A79D;--line:#26332C;--accent:#2DD4BF;--good:#34D399;--warn:#FBBF24;--crit:#F87171}
+:root[data-theme="light"] .bga{--bg:#F5F7F5;--surface:#FFFFFF;--surface2:#EDF2EE;--surface3:#D9E2DC;--ink:#14201B;--muted:#5C6B63;--line:#DEE5E0;--accent:#0F9E8E;--good:#16A34A;--warn:#D97706;--crit:#DC2626}
 .bga *{box-sizing:border-box}
-.bga h1{font-size:34px;line-height:1.1;margin:.1em 0;letter-spacing:-.02em;text-wrap:balance}
-.bga h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 14px;font-weight:600}
-.bga h3{font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 8px}
-.bga h4{font-size:17px;margin:.2em 0 .4em;letter-spacing:-.01em}
-.bga section{margin-top:34px}
-.eyebrow{font-size:11px;letter-spacing:.22em;color:var(--accent);font-weight:700}
-.hd{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-bottom:24px;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.sub{color:var(--muted);font-size:13.5px;letter-spacing:.02em}
-.date{color:var(--muted);font-size:12.5px;margin-top:6px}
-.hd-r{text-align:center}
-.gauge{position:relative;width:120px;height:120px;margin:0 auto}
-.ring{width:120px;height:120px;transform:rotate(-90deg)}
-.ring-bg{fill:none;stroke:var(--surface2);stroke-width:10}
-.ring-fg{fill:none;stroke-width:10;stroke-linecap:round;transition:stroke-dasharray .6s ease}
+.bga h1{font-size:34px;line-height:1.08;margin:.1em 0;letter-spacing:-.02em;text-wrap:balance}
+.bga h2{font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:0 0 14px;font-weight:600;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bga h3{font-size:18px;margin:.1em 0 .35em;letter-spacing:-.01em;text-wrap:balance}
+.bga section{margin-top:36px}
+.eyebrow{font-size:11px;letter-spacing:.2em;color:var(--accent);font-weight:700}
+.hd{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-bottom:22px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.sub{color:var(--muted);font-size:13px}.date{color:var(--muted);font-size:12.5px;margin-top:5px}
+.hd-r{text-align:center}.gauge{position:relative;width:118px;height:118px;margin:0 auto}
+.ring{width:118px;height:118px;transform:rotate(-90deg)}.ring-bg{fill:none;stroke:var(--surface2);stroke-width:10}
+.ring-fg{fill:none;stroke-width:10;stroke-linecap:round}
 .gauge-c{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.gv{font-size:38px;font-weight:750;letter-spacing:-.03em}
-.gm{color:var(--muted);font-size:14px;margin-left:2px}
-.gauge-l{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
-.honesty{margin-top:22px;background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:13.5px;color:var(--muted)}
-.honesty b{color:var(--ink)}
-.summary{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.sum-col{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
-.sum-col ul{margin:0;padding-left:18px}.sum-col li{margin:5px 0;font-size:14.5px}
-.sum-good h3{color:var(--good)}.sum-gap h3{color:var(--warn)}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 15px}
-.tile-h{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;min-height:34px;line-height:1.25}
-.dot{width:9px;height:9px;border-radius:50%;flex:none}
-.tile-s{margin:8px 0 6px}.sc{font-size:30px;font-weight:750;letter-spacing:-.03em}.sc-max{color:var(--muted);font-size:13px}
-.nd{color:var(--nodata);font-size:14px;font-weight:600;font-style:italic}
-.meter{height:7px;background:var(--surface2);border-radius:99px;overflow:hidden}.meter i{display:block;height:100%;border-radius:99px}
-.tile-w{color:var(--muted);font-size:11.5px;margin-top:8px;letter-spacing:.03em}
-.finds{display:flex;flex-direction:column;gap:12px}
-.find{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--nodata);border-radius:12px;padding:15px 17px}
-.find-good{border-left-color:var(--good)}.find-warn{border-left-color:var(--warn)}.find-crit{border-left-color:var(--crit)}.find-nodata{border-left-color:var(--nodata)}
-.find-top{display:flex;align-items:center;gap:10px;font-size:12px}
-.chip{padding:2px 9px;border-radius:99px;font-weight:600;font-size:11.5px}
-.chip-good{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good)}
-.chip-warn{background:color-mix(in srgb,var(--warn) 16%,transparent);color:var(--warn)}
-.chip-crit{background:color-mix(in srgb,var(--crit) 15%,transparent);color:var(--crit)}
-.chip-nodata{background:var(--surface2);color:var(--nodata)}
-.fid{color:var(--muted);letter-spacing:.05em}.prio{margin-left:auto;color:var(--muted);font-weight:600;letter-spacing:.03em}
-.kv{display:flex;align-items:baseline;gap:12px;margin:2px 0 6px;flex-wrap:wrap}.kv b{font-size:18px}
-.bench{color:var(--muted);font-size:12.5px}
-.why{margin:.2em 0;color:var(--muted);font-size:14px}
-.rec{margin:.4em 0 .6em;font-size:14.5px}.rec span{color:var(--accent);font-weight:600}
-.prov{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
-.prov a{color:var(--muted)}.prov .note{flex-basis:100%;font-style:italic;opacity:.85}
-.rel{padding:1px 7px;border-radius:6px;font-size:11px;font-weight:600}
-.rel-ok{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good)}
-.rel-neut{background:var(--surface2);color:var(--muted)}
-.rel-lock{background:color-mix(in srgb,var(--warn) 15%,transparent);color:var(--warn)}
-.rel-hyp{background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
-.eur-box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
-.eur-flag{display:inline-block;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent);font-weight:600;font-size:13px;padding:4px 10px;border-radius:8px;margin-bottom:8px}
-.eur-f{font-size:14px}.eur-i{font-size:13.5px;color:var(--muted);background:var(--surface2);padding:10px 12px;border-radius:8px}
-.road{margin:0;padding-left:20px}.road li{margin:8px 0;font-size:15px}.road li span{color:var(--accent);font-weight:700;margin-right:4px}
+.gv{font-size:36px;font-weight:750;letter-spacing:-.03em}.gm{color:var(--muted);font-size:13px}
+.lvl-badge{margin-top:8px;font-size:12px;font-weight:600;background:color-mix(in srgb,var(--warn) 15%,transparent);color:var(--warn);padding:4px 10px;border-radius:99px}
+.verdict{margin-top:22px;background:linear-gradient(180deg,color-mix(in srgb,var(--crit) 7%,var(--surface)),var(--surface));border:1px solid var(--line);border-left:4px solid var(--crit);border-radius:14px;padding:18px 20px}
+.verdict-k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--crit);font-weight:700}
+.verdict-t{font-size:22px;font-weight:700;letter-spacing:-.02em;margin:4px 0 6px;text-wrap:balance}
+.verdict p{margin:0;color:var(--muted);font-size:14.5px}
+.track{display:flex;gap:6px;flex-wrap:wrap}
+.lv{flex:1;min-width:80px;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:9px 8px;text-align:center;opacity:.55}
+.lv.on{opacity:1;background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
+.lv.cur{border-color:var(--warn);box-shadow:0 0 0 2px color-mix(in srgb,var(--warn) 30%,transparent);opacity:1}
+.lv-n{display:block;font-size:16px;font-weight:750;color:var(--accent)}.lv.cur .lv-n{color:var(--warn)}
+.lv-t{font-size:10.5px;color:var(--muted);letter-spacing:.02em;line-height:1.2}
+.next{margin-top:12px;font-size:13.5px;color:var(--muted);background:var(--surface2);border-radius:10px;padding:11px 13px}.next b{color:var(--ink)}
+.insights{display:flex;flex-direction:column;gap:14px}
+.ins{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--nodata);border-radius:14px;padding:17px 19px}
+.ins-critical{border-left-color:var(--crit)}.ins-warn{border-left-color:var(--warn)}.ins-good{border-left-color:var(--good)}
+.ins-tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.ins p{margin:.2em 0 .6em;font-size:14.5px;color:var(--muted)}
+.prov{font-size:11.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin-top:4px}.prov a{color:var(--muted)}
+.cbs{display:flex;flex-direction:column;gap:6px;margin:10px 0}
+.cb{display:grid;grid-template-columns:130px 1fr auto;align-items:center;gap:10px;font-size:13px}
+.cb-bar{background:var(--surface2);border-radius:99px;height:16px;overflow:hidden}.cb-bar i{display:block;height:100%;border-radius:99px}
+.cb-v{font-size:12.5px;white-space:nowrap}
+.chs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}
+.ch{background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:9px;text-align:center}
+.ch-g{display:block;font-size:15px;font-weight:750}
+.ch-good .ch-g{color:var(--good)}.ch-crit .ch-g{color:var(--crit)}.ch-nodata .ch-g{color:var(--nodata)}
+.ch-n{display:block;font-size:11px;line-height:1.2;margin:3px 0}.ch-s{font-size:10px;color:var(--muted)}
+.quests{display:flex;flex-direction:column;gap:10px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.q-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.q-name{font-weight:650;font-size:15px}.q-xp{font-size:12px;font-weight:700;color:var(--accent)}
+.q-metric{font-size:13px;color:var(--muted);margin:3px 0 7px;font-variant-numeric:tabular-nums}
+.q-meter{height:6px;background:var(--surface2);border-radius:99px;overflow:hidden}.q-meter i{display:block;height:100%;background:var(--accent);border-radius:99px}
+.q-bot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px;flex-wrap:wrap}
+.q-eff{font-size:12.5px;color:var(--muted)}
+.q-st{font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px;white-space:nowrap}
+.q-st-good{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good)}
+.q-st-warn{background:color-mix(in srgb,var(--warn) 15%,transparent);color:var(--warn)}
+.q-st-crit{background:color-mix(in srgb,var(--crit) 13%,transparent);color:var(--crit)}
+.glass{font-size:11px;font-weight:500;text-transform:none;letter-spacing:0;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent);padding:2px 8px;border-radius:6px}
+.axes{display:flex;flex-direction:column;gap:8px}
+.ax{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 15px}
+.ax summary{display:flex;align-items:center;gap:12px;cursor:pointer;padding:11px 0;list-style:none}
+.ax summary::-webkit-details-marker{display:none}
+.ax summary::before{content:"▸";color:var(--muted);font-size:12px;transition:transform .15s}
+.ax[open] summary::before{transform:rotate(90deg)}
+.ax-name{font-weight:600;font-size:15px;flex:1}.ax-w{color:var(--muted);font-size:11.5px}
+.ax-sc{font-size:22px;font-weight:750}.ax-max{color:var(--muted);font-size:12px}
+.ax-nd{color:var(--nodata);font-style:italic;font-size:13px;font-weight:600}
+.ax-meter{height:6px;background:var(--surface2);border-radius:99px;overflow:hidden;margin:2px 0 10px}.ax-meter i{display:block;height:100%;border-radius:99px}
+.drvs{display:flex;flex-direction:column;gap:6px;padding-bottom:12px}
+.drv{display:grid;grid-template-columns:1fr auto auto auto;gap:10px;align-items:center;font-size:12.5px;background:var(--surface2);border-radius:8px;padding:7px 11px}
+.d-l{color:var(--ink)}.d-raw{font-weight:700}.d-b{color:var(--muted);font-size:11.5px}.d-pts{color:var(--muted);font-weight:600;white-space:nowrap}
+.locked{display:flex;flex-direction:column;gap:9px}
+.lk{display:flex;gap:11px;background:var(--surface2);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;font-size:13.5px}
+.lk-lock{font-size:15px}.lk-shows{color:var(--muted);font-size:12.5px;margin-top:2px}.lk-un{color:var(--accent);font-size:12px;margin-top:3px}
 .fine{color:var(--muted);font-size:12.5px}
-.srcs{columns:2;font-size:12.5px;color:var(--muted);gap:24px}.srcs li{margin:4px 0;break-inside:avoid}.srcs a{color:var(--accent)}
-.disc{color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:10px;margin-top:12px}
-.ft{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;text-align:center}
-@media (max-width:620px){.tiles{grid-template-columns:1fr 1fr}.summary{grid-template-columns:1fr}.srcs{columns:1}.bga h1{font-size:27px}}
+.ft{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:11.5px;text-align:center}
+@media (max-width:640px){.chs{grid-template-columns:repeat(2,1fr)}.cb{grid-template-columns:96px 1fr auto}.bga h1{font-size:27px}.drv{grid-template-columns:1fr auto}.d-b{display:none}}
 </style>
 <div class="bga">
   <header class="hd">
-    <div class="hd-l">
-      <div class="eyebrow">BUSINESS GROWTH AUDIT · прототип v0.1</div>
+    <div>
+      <div class="eyebrow">BUSINESS GROWTH AUDIT · v0.2 · разведданные</div>
       <h1>Stuora Bar</h1>
       <div class="sub">BAR · Rīga, Latvija · Audēju iela 15, Centra rajons, Rīga, LV-1050</div>
-      <div class="date">Дата аудита: 2026-07-06</div>
+      <div class="date">Дата скана: 2026-07-06</div>
     </div>
     <div class="hd-r">
       <div class="gauge"><svg viewBox="0 0 120 120" class="ring" aria-hidden="true">
       <circle cx="60" cy="60" r="52" class="ring-bg"/>
-      <circle cx="60" cy="60" r="52" class="ring-fg" style="stroke:var(--warn);stroke-dasharray:163.4 326.7"/>
-    </svg><div class="gauge-c"><span class="gv" style="color:var(--warn)">50</span><span class="gm">/100</span></div></div>
-      <div class="gauge-l">Business Growth Score</div>
+      <circle cx="60" cy="60" r="52" class="ring-fg" style="stroke:var(--warn);stroke-dasharray:140.5 326.7"/>
+    </svg><div class="gauge-c"><span class="gv" style="color:var(--warn)">43</span><span class="gm">/100</span></div></div>
+      <div class="lvl-badge">Уровень 1 из 6 · На карте</div>
     </div>
   </header>
 
-  <div class="honesty">
-    <b>Только реальные данные.</b> Покрытие данных: <b>79%</b>. Оси «активность» и «доверие» помечены «нет данных» —
-    их метрики закрыты публично и требуют доступа клиента (Meta Graph API / Google Business). Балл считается только по осям с данными; ничего не додумывается.
+  <div class="verdict">
+    <div class="verdict-k">Главный вывод</div>
+    <div class="verdict-t">Лучший продукт района — но сломана дистрибуция</div>
+    <p>Рейтинг на потолке качества, а бар невидим там, где решают туристы и AI. Деньги теряются не на сервисе, а на обнаружении — чинить надо верх воронки.</p>
   </div>
 
   <section>
-    <h2>Коротко</h2>
-    <div class="summary">
-      <div class="sum-col sum-good"><h3>Сильные стороны</h3><ul><li>Рейтинг Google — отличный: <b>5.0 ★</b></li><li>Instagram присутствует: <b>@stuora.bar</b></li></ul></div>
-      <div class="sum-col sum-gap"><h3>Где теряете рост</h3><ul><li>Мало отзывов — низкий объём</li><li>Нет профиля на TripAdvisor</li><li>Нет собственного сайта</li></ul></div>
-    </div>
+    <h2>Игра роста — где вы на карте</h2>
+    <div class="track"><div class="lv on"><span class="lv-n">0</span><span class="lv-t">Невидимый</span></div><div class="lv on cur"><span class="lv-n">1</span><span class="lv-t">На карте</span></div><div class="lv off"><span class="lv-n">2</span><span class="lv-t">Discovery-5</span></div><div class="lv off"><span class="lv-n">3</span><span class="lv-t">Достоин гида</span></div><div class="lv off"><span class="lv-n">4</span><span class="lv-t">Топ карты</span></div><div class="lv off"><span class="lv-n">5</span><span class="lv-t">Виден ИИ</span></div><div class="lv off"><span class="lv-n">6</span><span class="lv-t">Эталон ниши</span></div></div>
+    <div class="next">Следующий уровень «Discovery-5» открывается по факту: <b>Присутствие на ≥5 площадках</b>. Уровень нельзя «купить» активностью — только реальной метрикой, подтверждённой ре-сканом.</div>
   </section>
 
   <section>
-    <h2>Скоринг по 6 осям</h2>
-    <div class="tiles"><div class="tile">
-      <div class="tile-h"><span class="dot" style="background:var(--warn)"></span>Локальная видимость (Google / Карты)</div>
-      <div class="tile-s"><span class="sc" style="color:var(--warn)">60</span><span class="sc-max">/100</span></div>
-      <div class="meter"><i style="width:60%;background:var(--warn)"></i></div>
-      <div class="tile-w">вес 27%</div>
-    </div><div class="tile">
-      <div class="tile-h"><span class="dot" style="background:var(--warn)"></span>Репутация и отзывы</div>
-      <div class="tile-s"><span class="sc" style="color:var(--warn)">63</span><span class="sc-max">/100</span></div>
-      <div class="meter"><i style="width:63%;background:var(--warn)"></i></div>
-      <div class="tile-w">вес 28%</div>
-    </div><div class="tile">
-      <div class="tile-h"><span class="dot" style="background:var(--crit)"></span>Сайт и конверсия</div>
-      <div class="tile-s"><span class="sc" style="color:var(--crit)">0</span><span class="sc-max">/100</span></div>
-      <div class="meter"><i style="width:0%;background:var(--crit)"></i></div>
-      <div class="tile-w">вес 12%</div>
-    </div><div class="tile">
-      <div class="tile-h"><span class="dot" style="background:var(--warn)"></span>Полнота присутствия (каналы / NAP)</div>
-      <div class="tile-s"><span class="sc" style="color:var(--warn)">50</span><span class="sc-max">/100</span></div>
-      <div class="meter"><i style="width:50%;background:var(--warn)"></i></div>
-      <div class="tile-w">вес 12%</div>
-    </div><div class="tile">
-      <div class="tile-h"><span class="dot" style="background:var(--nodata)"></span>Активность и контент</div>
-      <div class="tile-s"><span class="nd">нет данных</span></div>
-      <div class="meter"><i style="width:0"></i></div>
-      <div class="tile-w">вес 16%</div>
-    </div><div class="tile">
-      <div class="tile-h"><span class="dot" style="background:var(--nodata)"></span>Доверие и комплаенс</div>
-      <div class="tile-s"><span class="nd">нет данных</span></div>
-      <div class="meter"><i style="width:0"></i></div>
-      <div class="tile-w">вес 5%</div>
-    </div></div>
-    <p class="fine">Веса и пороги — из BENCHMARKS.md §E (🧪 перенос US, калибруются на выборке баров Риги).</p>
-  </section>
-
-  <section>
-    <h2>Находки и что делать</h2>
-    <div class="finds"><div class="find find-warn">
-      <div class="find-top">
-        <span class="chip chip-warn">▲ Внимание</span>
-        <span class="fid">R-01</span>
-        <span class="prio">P1</span>
-      </div>
-      <h4>Мало отзывов — низкий объём</h4>
-      <div class="kv"><b>40 отзывов</b><span class="bench">норма: норма бара 120–300</span></div>
-      <p class="why">Отзывы — второй по весу фактор локального ранжирования; малый объём ограничивает и доверие, и видимость при отличном рейтинге.</p>
-      <p class="rec"><span>Что сделать →</span> Запустить системный сбор отзывов: QR на столах/чеке, просьба на кассе. Цель — +20–30/мес.</p>
-      <div class="prov"><span class="rel rel-neut">веб-источник</span><a href="https://www.google.com/maps" target="_blank" rel="noopener">Google (сводка поиска) · 2026-07-06</a><span class="note">подтвердить через Places API</span></div>
-    </div><div class="find find-warn">
-      <div class="find-top">
-        <span class="chip chip-warn">▲ Внимание</span>
-        <span class="fid">R-05</span>
-        <span class="prio">P1</span>
-      </div>
-      <h4>Нет профиля на TripAdvisor</h4>
-      <div class="kv"><b>не найден</b><span class="bench">норма: туристы Риги ищут бары здесь</span></div>
-      <p class="why">TripAdvisor — ключевой канал для туристического потока Риги; без профиля этот трафик не виден.</p>
-      <p class="rec"><span>Что сделать →</span> Создать и заполнить бесплатный профиль TripAdvisor: фото, часы, категория, описание.</p>
-      <div class="prov"><span class="rel rel-neut">веб-источник</span><a href="https://www.tripadvisor.com/" target="_blank" rel="noopener">веб-поиск: профиль не найден · 2026-07-06</a></div>
-    </div><div class="find find-crit">
-      <div class="find-top">
-        <span class="chip chip-crit">■ Критично</span>
-        <span class="fid">W-01</span>
-        <span class="prio">P1</span>
-      </div>
-      <h4>Нет собственного сайта</h4>
-      <div class="kv"><b>сайт не найден</b><span class="bench">норма: база для меню, брони, SEO и рекламы</span></div>
-      <p class="why">Без сайта теряются прямые заходы, онлайн-меню, точка брони, структурированные данные и посадочная под рекламу; всё замкнуто на Instagram.</p>
-      <p class="rec"><span>Что сделать →</span> Собрать лёгкую посадочную (1 страница): меню (HTML, не PDF), часы, карта, клик-ту-колл, ссылки на соцсети.</p>
-      <div class="prov"><span class="rel rel-neut">веб-источник</span>веб-поиск: отдельный сайт не найден · 2026-07-06</div>
-    </div><div class="find find-good">
-      <div class="find-top">
-        <span class="chip chip-good">● OK</span>
-        <span class="fid">R-02</span>
-        <span class="prio">Сильная сторона</span>
-      </div>
-      <h4>Рейтинг Google — отличный</h4>
-      <div class="kv"><b>5.0 ★</b><span class="bench">норма: конкурентная планка ≥ 4.4 ★</span></div>
-      <p class="why">Высокий рейтинг напрямую повышает и конверсию в визит, и позицию в Картах.</p>
-      <p class="rec"><span>Что сделать →</span> Сохранять качество; использовать 5.0★ как аргумент в контенте и на будущем сайте.</p>
-      <div class="prov"><span class="rel rel-neut">веб-источник</span><a href="https://www.google.com/maps" target="_blank" rel="noopener">Google (сводка поиска) · 2026-07-06</a><span class="note">точное значение подтвердить через Places API</span></div>
-    </div><div class="find find-good">
-      <div class="find-top">
-        <span class="chip chip-good">● OK</span>
-        <span class="fid">N-04</span>
-        <span class="prio">P2</span>
-      </div>
-      <h4>Instagram присутствует</h4>
-      <div class="kv"><b>@stuora.bar</b><span class="bench">норма: основной живой канал бара</span></div>
-      <p class="why">Instagram — сильный канал для бара, но сейчас это единственная витрина; публичные метрики закрыты (нужен Meta Graph API).</p>
-      <p class="rec"><span>Что сделать →</span> Подключить Meta Graph Business Discovery для метрик; добавить второй канал (сайт/TripAdvisor).</p>
-      <div class="prov"><span class="rel rel-ok">проверено</span><a href="https://www.instagram.com/stuora.bar/" target="_blank" rel="noopener">Instagram · 2026-07-06</a></div>
-    </div><div class="find find-nodata">
-      <div class="find-top">
-        <span class="chip chip-nodata">○ Нет данных</span>
-        <span class="fid">S-01</span>
-        <span class="prio">Домер</span>
-      </div>
-      <h4>Активность в соцсетях — нет публичных данных</h4>
-      <div class="kv"><b>недоступно</b><span class="bench">норма: нужен Meta Graph Business Discovery (уровень B)</span></div>
-      <p class="why">Частоту постинга, вовлечённость и охват нельзя достоверно снять публично — Instagram блокирует скрап.</p>
-      <p class="rec"><span>Что сделать →</span> Подключить Meta Graph API (наш токен) — легально отдаёт подписчиков, ER, частоту, Reels.</p>
-      <div class="prov"><span class="rel rel-lock">нужен доступ</span><span class="note">публичный fetch заблокирован Instagram; нужен Meta Graph Business Discovery (уровень B)</span></div>
-    </div><div class="find find-nodata">
-      <div class="find-top">
-        <span class="chip chip-nodata">○ Нет данных</span>
-        <span class="fid">G-08</span>
-        <span class="prio">Домер</span>
-      </div>
-      <h4>Показы/клики Google Business — нет данных</h4>
-      <div class="kv"><b>недоступно</b><span class="bench">норма: нужен доступ владельца (уровень C, после DPA)</span></div>
-      <p class="why">Точная воронка (показы→клики→звонки→маршруты) и достоверный €-расчёт возможны только с доступом к GBP.</p>
-      <p class="rec"><span>Что сделать →</span> На пилоте подписать DPA и подключить Google Business Profile Insights.</p>
-      <div class="prov"><span class="rel rel-lock">нужен доступ</span><span class="note">требует доступа к Google Business Profile (уровень C, после DPA)</span></div>
+    <h2>Разведданные — то, чего вы не знали</h2>
+    <div class="insights"><div class="ins ins-critical">
+      <div class="ins-tag">Диагноз воронки</div>
+      <h3>Проблема НЕ в качестве — сломано обнаружение</h3>
+      <p>Рейтинг 5.0★ — выше конкурентной планки 4.4★, это потолок сигнала качества: улучшать сервис некуда, он уже максимален. Значит деньги теряются в ВЕРХНЕЙ части воронки — до бара просто не доходит достаточно людей, чтобы даже оставить отзыв. Чинить надо обнаружение и видимость, а не «поднимать сервис».</p>
+      
+      <div class="prov">источник: движок €-воронки (11_INSIGHT_ENGINES §7) · 2026-07-06</div>
+    </div><div class="ins ins-warn">
+      <div class="ins-tag">Конкурентная позиция</div>
+      <h3>Лучший рейтинг в сете — и меньше всех отзывов</h3>
+      <p>Среди сопоставимых баров центра у Stuora ЛУЧШИЙ рейтинг (5.0★), но по объёму отзывов — последнее место: 40 против 142–789 у конкурентов. Google после ~4.4★ ранжирует по объёму и свежести отзывов, не по десятым долям. Ты выигрываешь бой, о котором никто не знает.</p>
+      <div class="cbs"><div class="cb"><span class="cb-n" style="color:var(--ink);font-weight:700">Stuora</span><span class="cb-bar"><i style="width:5%;background:var(--crit)"></i></span><span class="cb-v" style="color:var(--ink)">40 ★ лучший рейтинг</span></div><div class="cb"><span class="cb-n" style="color:var(--muted);font-weight:400">Truff Le Pig</span><span class="cb-bar"><i style="width:18%;background:var(--surface3)"></i></span><span class="cb-v" style="color:var(--muted)">142</span></div><div class="cb"><span class="cb-n" style="color:var(--muted);font-weight:400">Bar Six (speakeasy)</span><span class="cb-bar"><i style="width:26%;background:var(--surface3)"></i></span><span class="cb-v" style="color:var(--muted)">204</span></div><div class="cb"><span class="cb-n" style="color:var(--muted);font-weight:400">nosaints (hidden bar)</span><span class="cb-bar"><i style="width:38%;background:var(--surface3)"></i></span><span class="cb-v" style="color:var(--muted)">296</span></div><div class="cb"><span class="cb-n" style="color:var(--muted);font-weight:400">Gimlet Nordic</span><span class="cb-bar"><i style="width:56%;background:var(--surface3)"></i></span><span class="cb-v" style="color:var(--muted)">439</span></div><div class="cb"><span class="cb-n" style="color:var(--muted);font-weight:400">Stabu Mākonis</span><span class="cb-bar"><i style="width:100%;background:var(--surface3)"></i></span><span class="cb-v" style="color:var(--muted)">789</span></div></div>
+      <div class="prov">источник: <a href="https://wanderlog.com/list/geoCategory/6425/best-bars-and-drinks-in-riga" target="_blank" rel="noopener">Wanderlog «50 best bars in Riga» · 2026-07-06</a></div>
+    </div><div class="ins ins-critical">
+      <div class="ins-tag">Видимость в гидах и AI</div>
+      <h3>Ноль из 4 гидов — и, вероятно, невидим для AI</h3>
+      <p>Stuora не появляется ни в одном из проверенных гидов «лучшие бары Риги» (Wanderlog «50 best bars», LiveRiga cocktail guide, Evendo Old Town bars, TripAdvisor Riga bars). А это ровно те источники, из которых (а) читают туристы и (б) ChatGPT/Perplexity/AI Overviews берут ответы на «где выпить в Риге». Для растущего «спроси у AI» бара структурно не существует. Отраслевой факт: 83% ресторанов невидимы в ChatGPT (Local Falcon/Uberall, 2026).</p>
+      
+      <div class="prov">источник: гид-проверка + движок AI-visibility (11_INSIGHT_ENGINES §2) · 2026-07-06</div>
+    </div><div class="ins ins-warn">
+      <div class="ins-tag">Поверхность обнаружения</div>
+      <h3>Находят только на 2 из 8 площадок</h3>
+      <p>Подтверждено присутствие: Google Maps / GBP, Instagram. Подтверждённо отсутствует: TripAdvisor, Собственный сайт, Wolt / Bolt (доставка), Гиды/каталоги Латвии. Каждая площадка — отдельная аудитория со своим путём открытия; сейчас закрыты турпоток (TripAdvisor) и аудитория доставки.</p>
+      <div class="chs"><div class="ch ch-good"><span class="ch-g">✓</span><span class="ch-n">Google Maps / GBP</span><span class="ch-s">есть</span></div><div class="ch ch-good"><span class="ch-g">✓</span><span class="ch-n">Instagram</span><span class="ch-s">есть</span></div><div class="ch ch-crit"><span class="ch-g">✕</span><span class="ch-n">TripAdvisor</span><span class="ch-s">нет</span></div><div class="ch ch-crit"><span class="ch-g">✕</span><span class="ch-n">Собственный сайт</span><span class="ch-s">нет</span></div><div class="ch ch-crit"><span class="ch-g">✕</span><span class="ch-n">Wolt / Bolt (доставка)</span><span class="ch-s">нет</span></div><div class="ch ch-crit"><span class="ch-g">✕</span><span class="ch-n">Гиды/каталоги Латвии</span><span class="ch-s">нет</span></div><div class="ch ch-nodata"><span class="ch-g">?</span><span class="ch-n">Facebook</span><span class="ch-s">не пров.</span></div><div class="ch ch-nodata"><span class="ch-g">?</span><span class="ch-n">Apple Maps / TheFork</span><span class="ch-s">не пров.</span></div></div>
+      <div class="prov">источник: веб-проверка присутствия по 8 площадкам · 2026-07-06</div>
     </div></div>
   </section>
 
-  <section class="eur">
-    <h2>Сколько это в деньгах (€)</h2>
-    <div class="eur-box">
-      <div class="eur-flag">€-оценка пока недоступна — и мы её не выдумываем</div>
-      <p>Точная сумма требует среднего чека (от вас) и показов Google Business (уровень C, после DPA).</p>
-      <p class="eur-f"><b>Механика:</b> Недо-€/мес ≈ (норма_отзывов − факт) → недо-видимость в Картах → недо-визиты × средний чек</p>
-      <p class="eur-i">🧪 Иллюстрация механики (НЕ факт): при среднем чеке €12 и росте с 40 до 120 отзывов ожидаемо расширение видимости в Google Maps. Реальные числа считаем на пилоте по данным GBP.</p>
-    </div>
+  <section>
+    <h2>Квесты роста — путь к следующему уровню</h2>
+    <div class="quests"><div class="q q-warn">
+      <div class="q-top"><span class="q-name">Discovery-5 · Пятикратка</span><span class="q-xp">+250 XP</span></div>
+      <div class="q-metric">2/5 площадок</div>
+      <div class="q-meter"><i style="width:40%"></i></div>
+      <div class="q-bot"><span class="q-eff">→ Меньше «не нашли»-трения; цитирования = сигнал ранжирования Картам</span><span class="q-st q-st-warn">в работе</span></div>
+    </div><div class="q q-warn">
+      <div class="q-top"><span class="q-name">Guide-Eligible · Достоин гида</span><span class="q-xp">+400 XP</span></div>
+      <div class="q-metric">40/150 отзывов · рейтинг 5.0★ (порог ≥4.3 ✓)</div>
+      <div class="q-meter"><i style="width:26%"></i></div>
+      <div class="q-bot"><span class="q-eff">→ Порог входа в алгоритмическую выдачу гидов/TripAdvisor и Map Pack</span><span class="q-st q-st-warn">в работе</span></div>
+    </div><div class="q q-crit">
+      <div class="q-top"><span class="q-name">Tourist-Ready · Готов к туристам</span><span class="q-xp">+300 XP</span></div>
+      <div class="q-metric">TripAdvisor + бронь: нет</div>
+      <div class="q-meter"><i style="width:0%"></i></div>
+      <div class="q-bot"><span class="q-eff">→ Захват туристического потока Риги (~94 тыс. отзывов туристов/год)</span><span class="q-st q-st-crit">заблокирован</span></div>
+    </div><div class="q q-crit">
+      <div class="q-top"><span class="q-name">AI-Visible · Виден ИИ</span><span class="q-xp">+500 XP</span></div>
+      <div class="q-metric">0 гидов → вероятно нет</div>
+      <div class="q-meter"><i style="width:0%"></i></div>
+      <div class="q-bot"><span class="q-eff">→ Захват zero-click открытия через ChatGPT/Perplexity</span><span class="q-st q-st-crit">нужен прогон промптов</span></div>
+    </div><div class="q q-crit">
+      <div class="q-top"><span class="q-name">Data-Driven · На приборах</span><span class="q-xp">+200 XP</span></div>
+      <div class="q-metric">GA4/GBP Insights не подключены</div>
+      <div class="q-meter"><i style="width:0%"></i></div>
+      <div class="q-bot"><span class="q-eff">→ Разблокирует проверенный €-расчёт: диапазон → факт</span><span class="q-st q-st-crit">нужен доступ клиента (DPA)</span></div>
+    </div></div>
+    <p class="fine">Каждый квест — реальный порог с прогнозом эффекта. Награда засчитывается только после ре-скана, который подтверждает факт (это и есть подписка-сопровождение).</p>
   </section>
 
   <section>
-    <h2>Первые шаги (приоритет P1)</h2>
-    <ol class="road"><li><span>R-01</span> Запустить системный сбор отзывов: QR на столах/чеке, просьба на кассе. Цель — +20–30/мес.</li><li><span>R-05</span> Создать и заполнить бесплатный профиль TripAdvisor: фото, часы, категория, описание.</li><li><span>W-01</span> Собрать лёгкую посадочную (1 страница): меню (HTML, не PDF), часы, карта, клик-ту-колл, ссылки на соцсети.</li></ol>
+    <h2>Почему такие баллы <span class="glass">стеклянный ящик — раскрой ось</span></h2>
+    <div class="axes"><details class="ax">
+      <summary><span class="ax-name">Локальная видимость</span><span class="ax-w">вес 27%</span><span class="ax-sc" style="color:var(--warn)">49</span><span class="ax-max">/100</span></summary>
+      <div class="ax-meter"><i style="width:49%;background:var(--warn)"></i></div><div class="drvs"><div class="drv"><span class="d-l">GBP присутствует на Картах</span><span class="d-raw">да</span><span class="d-b">норма: обязательно</span><span class="d-pts">40/40</span></div><div class="drv"><span class="d-l">Объём отзывов (фактор ранжирования)</span><span class="d-raw">40</span><span class="d-b">норма: норма 150+</span><span class="d-pts">9/35</span></div><div class="drv"><span class="d-l">Веб/SEO-присутствие (свой сайт)</span><span class="d-raw">нет</span><span class="d-b">норма: нужен сайт</span><span class="d-pts">0/25</span></div></div>
+    </details><details class="ax">
+      <summary><span class="ax-name">Репутация и отзывы</span><span class="ax-w">вес 28%</span><span class="ax-sc" style="color:var(--warn)">64</span><span class="ax-max">/100</span></summary>
+      <div class="ax-meter"><i style="width:64%;background:var(--warn)"></i></div><div class="drvs"><div class="drv"><span class="d-l">Средний рейтинг Google</span><span class="d-raw">5.0★</span><span class="d-b">норма: ≥4.4★</span><span class="d-pts">43/40</span></div><div class="drv"><span class="d-l">Объём отзывов</span><span class="d-raw">40</span><span class="d-b">норма: норма 150–300</span><span class="d-pts">11/40</span></div><div class="drv"><span class="d-l">Охват площадок отзывов</span><span class="d-raw">только Google</span><span class="d-b">норма: ≥2 площадки</span><span class="d-pts">10/20</span></div></div>
+    </details><details class="ax">
+      <summary><span class="ax-name">Сайт и конверсия</span><span class="ax-w">вес 12%</span><span class="ax-sc" style="color:var(--crit)">0</span><span class="ax-max">/100</span></summary>
+      <div class="ax-meter"><i style="width:0%;background:var(--crit)"></i></div><div class="drvs"><div class="drv"><span class="d-l">Собственный сайт</span><span class="d-raw">не найден</span><span class="d-b">норма: нужен сайт/посадочная</span><span class="d-pts">0/100</span></div></div>
+    </details><details class="ax">
+      <summary><span class="ax-name">Полнота присутствия</span><span class="ax-w">вес 12%</span><span class="ax-sc" style="color:var(--crit)">25</span><span class="ax-max">/100</span></summary>
+      <div class="ax-meter"><i style="width:25%;background:var(--crit)"></i></div><div class="drvs"><div class="drv"><span class="d-l">Подтверждённых площадок</span><span class="d-raw">2 из 8</span><span class="d-b">норма: цель ≥5</span><span class="d-pts">25/100</span></div></div>
+    </details><details class="ax">
+      <summary><span class="ax-name">Активность и контент</span><span class="ax-w">вес 16%</span><span class="ax-nd">нет данных</span></summary>
+      <div class="drvs"><div class="drv"><span class="d-l">Метрики Instagram</span><span class="d-raw">нет данных</span><span class="d-b">норма: нужен Meta Graph API (уровень B)</span></div></div>
+    </details><details class="ax">
+      <summary><span class="ax-name">Доверие и комплаенс</span><span class="ax-w">вес 5%</span><span class="ax-nd">нет данных</span></summary>
+      <div class="drvs"><div class="drv"><span class="d-l">SSL/cookie сайта</span><span class="d-raw">нет данных</span><span class="d-b">норма: нет сайта — нечего проверять</span></div></div>
+    </details></div>
+    <p class="fine">Общий балл 43/100 · покрытие данных 79%. Оси без данных исключены из балла, не занижены молча. Пороги — из BENCHMARKS.md (🧪 перенос US, калибруются на Риге).</p>
   </section>
 
-  <section class="meth">
-    <h2>Методология и источники</h2>
-    <p class="fine">Балл 0–100 = взвешенная сумма осей (по осям с данными). Каждый факт снабжён источником, датой и уровнем достоверности. «Нет данных» никогда не заменяется догадкой.</p>
-    <ul class="srcs"><li>Google (сводка поиска) — <a href="https://www.google.com/maps" target="_blank" rel="noopener">ссылка</a> · 2026-07-06</li><li>Instagram — <a href="https://www.instagram.com/stuora.bar/" target="_blank" rel="noopener">ссылка</a> · 2026-07-06</li><li>веб-поиск: отдельный сайт не найден · 2026-07-06</li><li>веб-поиск: профиль не найден — <a href="https://www.tripadvisor.com/" target="_blank" rel="noopener">ссылка</a> · 2026-07-06</li></ul>
-    <p class="disc">Прототип на публичных данных (уровни A/B). Рейтинг/отзывы Google взяты из сводки веб-поиска и подлежат подтверждению через Places API. €-оценка и метрики соцсетей появляются на пилоте после доступа клиента (DPA).</p>
+  <section>
+    <h2>Заблокированные движки — что раскроется дальше</h2>
+    <div class="locked"><div class="lk"><span class="lk-lock">🔒</span>
+      <div><b>Share of Local Voice (гео-грид)</b><div class="lk-shows">покажет: на скольких точках района ты реально в топ-3 Карт, а не только у своего порога</div>
+      <div class="lk-un">разблокировать: прогон сетки 7×7 через DataForSEO/Local Falcon (~$0.30)</div></div></div><div class="lk"><span class="lk-lock">🔒</span>
+      <div><b>Review Mining (NLP по отзывам)</b><div class="lk-shows">покажет: что гости хвалят (скрытый актив для маркетинга) и на что жалуются — по темам</div>
+      <div class="lk-un">разблокировать: Places API + доступ клиента (полная история отзывов)</div></div></div><div class="lk"><span class="lk-lock">🔒</span>
+      <div><b>Competitor Trajectory</b><div class="lk-shows">покажет: через сколько месяцев конкурент обгонит тебя (или ты его) по отзывам</div>
+      <div class="lk-un">разблокировать: 2–3 ежемесячных замера (нужно только время)</div></div></div><div class="lk"><span class="lk-lock">🔒</span>
+      <div><b>Demand Capture</b><div class="lk-shows">покажет: какую долю локального спроса на «бары рядом» ты реально забираешь</div>
+      <div class="lk-un">разблокировать: Google Keyword Planner + гео-грид</div></div></div><div class="lk"><span class="lk-lock">🔒</span>
+      <div><b>€-Воронка (точная)</b><div class="lk-shows">покажет: точный € упущенной выручки по стадиям показ→визит→доход</div>
+      <div class="lk-un">разблокировать: доступ к GBP Insights + средний чек (анкета)</div></div></div></div>
+    <p class="fine">Это не «нет данных навсегда», а следующие уровни глубины: часть открывается ключами API, часть — доступом клиента, часть — просто временем (2–3 замера).</p>
   </section>
 
-  <footer class="ft">Business Growth Audit · движок-прототип · сгенерировано детерминированным кодом (без LLM) · 2026-07-06</footer>
+  <footer class="ft">Business Growth Audit v0.2 · сгенерировано детерминированным кодом (числа считает движок, не LLM) · только реальные данные, где нет — «нет данных» · 2026-07-06</footer>
 </div>
 </body>
 </html>
